@@ -1,5 +1,4 @@
-var uncheckedOnLoad = 0; // Stores the number of checkboxes that are unchecked on load.
-// AJAX loads json file, inputs the table fields.
+var uncheckedOnLoad = 0; 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -11,7 +10,7 @@ xhttp.onreadystatechange = function () {
             output += '<td class="alignCenter">' + objects[i].userId + "</td>";
             output += '<td class="alignCenter">' + objects[i].id + "</td>";
             output += "<td >" + objects[i].title + "</td>";
-            // Checks whether the checkbox needs to be pre-checked and disabled
+            
             if (objects[i].completed == true) {
                 output += `<th><input type="checkbox" checked disabled onchange="checkChange()"></th>`;
             }
@@ -32,7 +31,7 @@ var storeCount = 0;
 function checkChange() {
     var promise = new Promise(function (resolve, reject) {
         var checkCount = 0;
-        // Loops thorugh all the checkboxes and counts the checked boxes
+       
         for (var i = 0; i < uncheckedOnLoad; i++) {
             if ((document.getElementById("checkBox" + i)).checked == true) {
                 checkCount += 1;
