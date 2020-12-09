@@ -1,0 +1,31 @@
+*{ 
+    padding: 0px;
+    margin: 0px;
+}
+.myMargin{
+    margin: 25px;
+    text-align: center;
+} 
+#back{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+
+}
+.nav-item
+{
+    color: white;
+}
+#nav-link{
+    color: white;
+}
+footer{
+    background-color: black;
+    color: white;
+    height: 1.1em;
+    margin-top: 50%;
+  
+}
+footer p{
+    text-align: center;
+}
