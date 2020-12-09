@@ -5,7 +5,7 @@ xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         var objects = JSON.parse(this.response);
         var output = "<tr><th>User ID</th><th>ID</th><th>Title</th><th>Completed</th></tr>";
-        // Loops through all the objects 
+        
         for (var i = 0; i < objects.length; i++) {
             output += "<tr>";
             output += '<td class="alignCenter">' + objects[i].userId + "</td>";
@@ -16,7 +16,7 @@ xhttp.onreadystatechange = function () {
                 output += `<th><input type="checkbox" checked disabled onchange="checkChange()"></th>`;
             }
             else {
-                // Adds a custom id to the unchecked boxes for later functions
+                
                 output += `<th><input type="checkbox" oninput="checkChange()" id="checkBox${uncheckedOnLoad}"></th>`;
                 uncheckedOnLoad += 1;
             }
@@ -28,8 +28,7 @@ xhttp.onreadystatechange = function () {
 }
 xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
 xhttp.send();
-var storeCount = 0; // Used to store previous value of checkCount
-// Below function gets called everytime checkbox input is modified
+var storeCount = 0; 
 function checkChange() {
     var promise = new Promise(function (resolve, reject) {
         var checkCount = 0;
@@ -39,7 +38,7 @@ function checkChange() {
                 checkCount += 1;
             }
         }
-        // Resolves only when the total checkbox count comes upto 5 from a lower number
+       
         if (checkCount == 5 && storeCount < 5) {
             resolve();
         }
